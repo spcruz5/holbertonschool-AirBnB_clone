@@ -49,6 +49,8 @@ class BaseModel:
     def save(self):
         """Updates public instance attribute update_at with the actual date and hour"""
         self.updated_at = datetime.now()
+        # Call method save(self) of storage
+        models.storage.save()
 
     def to_dict(self):
         """Returns a dictionary that contains all the keys / values of instance dictionary"""
