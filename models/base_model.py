@@ -10,11 +10,11 @@ import models
 dtm = "%Y-%m-%dT%H:%M:%S.%f"
 value = "2017-06-14T22:31:03.285259"
 
-
 class BaseModel:
     """Base Model"""
     def __init__(self, *args, **kwargs):
-          if len(kwargs) > 0:
+
+        if len(kwargs) > 0:
             # Check for keys and value in the items
             for key, value in kwargs.items():
                 # Assign key the actual date of creation
@@ -31,16 +31,16 @@ class BaseModel:
                 # value: value which will be assigned to the variable
                 elif key != "__class__":
                     setattr(self, key, value)
-            else:
-                # Assign aleotory id
-                self.id = str(uuid.uuid4)
-                # Assign updated date
-                self.created_at = datetime.now()
-                # Update the last date modification
-                self.updated_at = self.created_at
-                # If is a new instance
-                # not from a dictionary representation
-                models.storage.new(self)
+        else:
+            # Assign aleotory id
+            self.id = str(uuid.uuid4)
+            # Assign updated date
+            self.created_at = datetime.now()
+            # Update the last date modification
+            self.updated_at = self.created_at
+            # If is a new instance
+            # not from a dictionary representation
+            models.storage.new(self)
 
     def __str__(self):
         """Returns the class name, id and dictionary attrbutes"""
