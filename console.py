@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     """
     Class Command interpreter
     """
-    intro = ''
+
     prompt = '(hbnb) '
     file = None
 
@@ -40,6 +40,7 @@ class HBNBCommand(cmd.Cmd):
         
 
     def do_create(self, line):
+        """"""
         if len(line) == 0:
             print ("** class name missing **")
 
@@ -50,6 +51,8 @@ class HBNBCommand(cmd.Cmd):
             instance.save()
         except:
             print("** class doesn't exist **")
+
+    def show(self):
             
 
 
