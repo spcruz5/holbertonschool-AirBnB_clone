@@ -33,7 +33,7 @@ class BaseModel:
                     setattr(self, key, value)
         else:
             # Assign aleotory id
-            self.id = str(uuid.uuid4)
+            self.id = str(uuid.uuid4())
             # Assign updated date
             self.created_at = datetime.now()
             # Update the last date modification
