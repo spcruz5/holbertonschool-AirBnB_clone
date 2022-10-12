@@ -1,8 +1,7 @@
 #!/usr/bin/python3
 
 import cmd
-from models.
-
+import models 
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -15,6 +14,12 @@ class HBNBCommand(cmd.Cmd):
    
     def do_quit(self, line):
         exit() 
+
+
+if __name__ == '__main__':
+        HBNBCommand().cmdloop() 
+
+
 
 
 if __name__ == '__main__':
