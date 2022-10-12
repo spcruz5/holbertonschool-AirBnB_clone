@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     """
     Class Command interpreter
     """
-
+    intro = ''
     prompt = '(hbnb) '
     file = None
 
@@ -40,9 +40,7 @@ class HBNBCommand(cmd.Cmd):
         
 
     def do_create(self, line):
-<<<<<<< HEAD
         """"""
-=======
         if len(line) == 0:
             print ("** class name missing **")
 
@@ -54,7 +52,6 @@ class HBNBCommand(cmd.Cmd):
         except:
             print("** class doesn't exist **")
             
->>>>>>> angeira
 
 
 if __name__ == '__main__':
