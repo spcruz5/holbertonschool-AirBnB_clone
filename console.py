@@ -21,10 +21,12 @@ class HBNBCommand(cmd.Cmd):
     def help_quit(self):
         """help_quit this action is provided by default by cmd"""
         print("Quit command to exit the program\n")
+        return True
 
     def help_EOF(self):
         """help_EOF"""
         print("End of File command: exit the program\n")
+        return True
 
     def emptyline(self):
         """Built in method that prints the prompt again"""
@@ -33,4 +35,4 @@ class HBNBCommand(cmd.Cmd):
 
 
 if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
