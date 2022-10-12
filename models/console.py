@@ -25,6 +25,10 @@ class HBNBCommand(cmd.Cmd):
     def help_EOF(self):
         """help_EOF"""
         print("End of File command: exit the program\n")
+
+    def emptyline(self):
+        """Built in method that prints the prompt again"""
+        return False
         
 
 
