@@ -54,6 +54,7 @@ class BaseModel:
     def to_dict(self):
         """Returns a dictionary that contains all the keys / values of instance dictionary"""
         dic = {
+            'id': self.id,
             'created_at': self.created_at.strftime(dtm),
             'updated_at': self.updated_at.strftime(dtm),
             '__class__': self.__class__.__name__
