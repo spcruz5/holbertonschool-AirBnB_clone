@@ -40,7 +40,21 @@ class HBNBCommand(cmd.Cmd):
         
 
     def do_create(self, line):
+<<<<<<< HEAD
         """"""
+=======
+        if len(line) == 0:
+            print ("** class name missing **")
+
+        try:
+            string = line + "()"
+            instance = eval(string)
+            print(instance.id)
+            instance.save()
+        except:
+            print("** class doesn't exist **")
+            
+>>>>>>> angeira
 
 
 if __name__ == '__main__':
