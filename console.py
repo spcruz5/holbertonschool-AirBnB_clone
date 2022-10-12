@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
     """
     Class Command interpreter
     """
-    intro = ''
+
     prompt = '(hbnb) '
     file = None
 
@@ -39,7 +39,8 @@ class HBNBCommand(cmd.Cmd):
         return False
         
 
-    def do_create(self, line)
+    def do_create(self, line):
+        """"""
 
 
 if __name__ == '__main__':
