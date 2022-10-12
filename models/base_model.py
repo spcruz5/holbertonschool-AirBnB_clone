@@ -39,7 +39,7 @@ class BaseModel:
             self.updated_at = self.created_at
             # If is a new instance
             # not from a dictionary representation
-            # models.storage.new(self)
+            models.storage.new(self)
 
     def __str__(self):
         """Returns the class name, id and dictionary attrbutes"""
@@ -49,7 +49,7 @@ class BaseModel:
         """Updates public instance attribute update_at with the actual date and hour"""
         self.updated_at = datetime.now()
         # Call method save(self) of storage
-        # models.storage.save()
+        models.storage.save()
 
     def to_dict(self):
         """Returns a dictionary that contains all the keys / values of instance dictionary"""
