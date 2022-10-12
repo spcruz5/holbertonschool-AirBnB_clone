@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import cmd
-import models 
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -11,15 +10,22 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
     file = None
 
-   
+    def do_EOF(self, line):
+        """End of File command: exit the program"""
+        return True
+    
     def do_quit(self, line):
-        exit() 
+        """Quits command that exits the program """
+        exit()
 
+    def help_quit(self):
+        """help_quit this action is provided by default by cmd"""
+        print("Quit command to exit the program\n")
 
-if __name__ == '__main__':
-        HBNBCommand().cmdloop() 
-
-
+    def help_EOF(self):
+        """help_EOF"""
+        print("End of File command: exit the program\n")
+        
 
 
 if __name__ == '__main__':
