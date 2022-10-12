@@ -39,7 +39,18 @@ class HBNBCommand(cmd.Cmd):
         return False
         
 
-    def do_create(self, line)
+    def do_create(self, line):
+        if len(line) == 0:
+            print ("** class name missing **")
+
+        try:
+            string = line + "()"
+            instance = eval(string)
+            print(instance.id)
+            instance.save()
+        except:
+            print("** class doesn't exist **")
+            
 
 
 if __name__ == '__main__':
