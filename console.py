@@ -1,6 +1,12 @@
 #!/usr/bin/python3
+"""
+Creating the command interpreter console
+"""
+
 
 import cmd
+from models.base_model import BaseModel
+
 
 class HBNBCommand(cmd.Cmd):
     """
@@ -33,6 +39,8 @@ class HBNBCommand(cmd.Cmd):
         return False
         
 
+    def do_create(self, line)
+
 
 if __name__ == '__main__':
-        HBNBCommand().cmdloop()
+    HBNBCommand().cmdloop()
