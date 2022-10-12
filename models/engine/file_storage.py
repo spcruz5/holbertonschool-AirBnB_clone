@@ -2,6 +2,8 @@
 """This module defines a class to manage file storage for hbnb clone"""
 import json
 
+from models.base_model import BaseModel
+
 
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
@@ -17,7 +19,7 @@ class FileStorage:
     def new(self, obj):
         """Sets in __objects to obj with key"""
         class_name = type(obj).__name__
-        key_obj = "{}.{}".format(type(obj).__name__, obj.id)
+        key_obj = "{}.{}".format(class_name, obj.id)
         self.__objects[key_obj] = obj
 
     def save(self):
@@ -31,8 +33,8 @@ class FileStorage:
         """Deserializes the JSON file to __objects"""
         try:
             with open(self.__file_path, 'r', encoding="UTF8") as f:
-                obj_dict = json.loads(f.read())
-                for key, value in obj_dict.items():
-                    self.__objects[key] = eval(value['__class__'])(**value)
+                obj_dir = json.loads(f.read())
+                for key, value in obj_dir.items():
+                    self.__objects[key] = BaseModel(**value)
         except:
             pass
