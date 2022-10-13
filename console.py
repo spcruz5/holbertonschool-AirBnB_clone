@@ -161,7 +161,7 @@ class HBNBCommand(cmd.Cmd):
             print("** value missing **")
             return
 
-        instance_found.save()
+        instance_found.storage.save()
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
