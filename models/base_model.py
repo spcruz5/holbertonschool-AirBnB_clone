@@ -13,7 +13,12 @@ value = "2017-06-14T22:31:03.285259"
 class BaseModel:
     """Base Model"""
     def __init__(self, *args, **kwargs):
-
+        """
+        Initialization of the object/instance attributes
+            id: contains the object's identification
+            created_at: the datetime in which the object was created
+            updated_at: the datetime in which the object was modified
+        """
         if len(kwargs) > 0:
             # Check for keys and value in the items
             for key, value in kwargs.items():
@@ -53,7 +58,14 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """Returns a dictionary that contains all the keys / values of instance dictionary"""
+        """ Returns a dictionary that contains all the keys / 
+            values of instance __dict__ of the instance with
+            self.__dic__.
+            This method will be the first piece of the
+            serialization/deserialization process: create a
+            dictionary representation with simple object type"
+            of our BaseModel
+        """
         dic = {
             
             '__class__': self.__class__.__name__,
