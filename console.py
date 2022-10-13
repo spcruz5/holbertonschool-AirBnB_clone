@@ -94,7 +94,11 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         elif len(className_line) == 2:
             instance = className_line[0] + "." + className_line[1]
-            if ins
+            if instance in models.storage.all():
+                del models.storage.all()[instance]
+                models.storage.save()
+            else:
+                print("** no instance found **")
             
     def do_update(self, line):
         """
