@@ -15,6 +15,7 @@ from models.review import Review
 from models.state import State
 from models.user import User
 from models.engine.file_storage import FileStorage
+import shlex
 
 
 classGroup = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
@@ -25,7 +26,7 @@ class HBNBCommand(cmd.Cmd):
     """
     Class Command interpreter
     """
-    intro = ''
+    
     prompt = '(hbnb) '
     file = None
 
@@ -94,8 +95,32 @@ class HBNBCommand(cmd.Cmd):
             print("** instance id missing **")
         elif len(className_line) == 2:
             instance = className_line[0] + "." + className_line[1]
-            if ins
-            
+            if instance in models.storage.all():
+                del models.storage.all()[instance]
+                models.storage.save()
+            else:
+                print("** no instance found **")
+    
+    def do_all(self, line):
+        """Prints string representations of instances"""
+        className_line = shlex.split(line)
+        obj_list = []
+        if len(className_line) == 0:
+            for value in models.storage.all().values():
+                obj_list.append(str(value))
+            print("[", end="")
+            print(", ".join(obj_list), end="")
+            print("]")
+        elif className_line[0] in classGroup:
+            for key in models.storage.all():
+                if className_line[0] in key:
+                    obj_list.append(str(models.storage.all()[key]))
+            print("[", end="")
+            print(", ".join(obj_list), end="")
+            print("]")
+        else:
+            print("** class doesn't exist **")
+      
     def do_update(self, line):
         """
         Updates or Adds an attribute to an instance of a class
