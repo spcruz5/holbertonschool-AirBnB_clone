@@ -43,3 +43,27 @@ class TestUser_init(unittest.TestCase):
         us1 = User()
         us2 = User()
         self.assertNotEqual(us1.id, us2.id)
+   
+    def test_email(self):
+        """ Checking pass email """
+        user1 = User()
+        self.assertEqual(str, type(User.email))
+        self.assertTrue(hasattr(user1, "email"))
+
+    def test_password(self):
+        """ Checking pass password """
+        user1 = User()
+        self.assertEqual(str, type(User.password))
+        self.assertTrue(hasattr(user1, "password"))
+
+    def test_first_name(self):
+        """ Checking pass first name """
+        user1 = User()
+        self.assertEqual(str, type(User.first_name))
+        self.assertTrue(hasattr(user1, "first_name"))
+
+    def test_last_name(self):
+        """ Checking pass last name """
+        user1 = User()
+        self.assertEqual(str, type(User.last_name))
+        self.assertTrue(hasattr(user1, "last_name"))
