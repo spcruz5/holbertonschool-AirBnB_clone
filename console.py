@@ -5,7 +5,6 @@ Creating the command interpreter console
 
 
 import cmd
-from models.base_model import BaseModel
 import models
 from models.amenity import Amenity
 from models.base_model import BaseModel
