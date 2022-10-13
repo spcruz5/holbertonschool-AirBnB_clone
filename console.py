@@ -14,6 +14,7 @@ from models.place import Place
 from models.review import Review
 from models.state import State
 from models.user import User
+from models.engine.file_storage import FileStorage
 
 
 classGroup = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
@@ -88,17 +89,17 @@ class HBNBCommand(cmd.Cmd):
         only one attribute and value can be updated per call
         """
         if not line:
-            print(" class name missing ")
+            print("** class name missing **")
             return
 
         args = line.split()
 
         if args[0] not in classGroup.keys():
-            print(" class doesn't exist ")
+            print("** class doesn't exist **")
             return
 
         if len(args) == 1:
-            print(" instance id missing ")
+            print("** instance id missing **")
             return
 
         obj_key = args[0] + "." + args[1]
@@ -111,15 +112,15 @@ class HBNBCommand(cmd.Cmd):
                 instance_found = value
 
         if not instance_found:
-            print(" no instance found ")
+            print("** no instance found **")
             return
 
         if len(args) < 3:
-            print(" attribute name missing ")
+            print("** attribute name missing **")
             return
 
         if len(args) < 4:
-            print(" value missing ")
+            print("** value missing **")
             return
 
         instance_found.save()
