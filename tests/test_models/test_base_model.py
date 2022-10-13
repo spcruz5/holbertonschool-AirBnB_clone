@@ -15,6 +15,12 @@ from models.engine.file_storage import FileStorage
 
 class TestBaseModel(unittest.TestCase):
     """Test class for BaseModel"""
+    
+    def setUp(self):
+        """SetUp method"""
+        self.bm_instance1 = BaseModel()
+        self.bm_instance2 = BaseModel()
+    
     def test_docstring(self):
         """test docstring in the file"""
         self.assertIsNotNone(BaseModel.__doc__)
