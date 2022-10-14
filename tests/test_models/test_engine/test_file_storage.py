@@ -41,14 +41,31 @@ class Test_File_Storage_Method(unittest.TestCase):
         self.assertTrue(key in ob_dict.keys())
 
     def test_save(self):
-        """Check the save method."""
-        MyModel = BaseModel()
-        self.storage = FileStorage()
-        self.storage.save()
-        self.path = self.storage.__file_path
-        with open(self.path) as file:
-            file_dict = json.load(file)
-        self.assertIn(MyModel.to_dict(), file_dict.values())
+        bm = BaseModel()
+        us = User()
+        st = State()
+        pl = Place()
+        cy = City()
+        am = Amenity()
+        rv = Review()
+        models.storage.new(bm)
+        models.storage.new(us)
+        models.storage.new(st)
+        models.storage.new(pl)
+        models.storage.new(cy)
+        models.storage.new(am)
+        models.storage.new(rv)
+        models.storage.save()
+        save_text = ""
+        with open("file.json", "r") as f:
+            save_text = f.read()
+            self.assertIn("BaseModel." + bm.id, save_text)
+            self.assertIn("User." + us.id, save_text)
+            self.assertIn("State." + st.id, save_text)
+            self.assertIn("Place." + pl.id, save_text)
+            self.assertIn("City." + cy.id, save_text)
+            self.assertIn("Amenity." + am.id, save_text)
+            self.assertIn("Review." + rv.id, save_text)
 
     def test_reload_method(self):
         """ Check the reload() method."""
