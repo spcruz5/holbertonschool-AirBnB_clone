@@ -18,8 +18,7 @@ from models import storage
 import shlex
 
 
-classGroup = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
-           "Place": Place, "Review": Review, "State": State, "User": User}
+classGroup = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City, "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
@@ -51,11 +50,10 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Built in method that prints the prompt again"""
         return False
-    
 
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it
-        (to the JSON file) and prints the id.
+            (to the JSON file) and prints the id.
         """
         if len(line) == 0:
             print("** class name missing **")
@@ -130,7 +128,7 @@ class HBNBCommand(cmd.Cmd):
             print("]")
         else:
             print("** class doesn't exist **")
- 
+
     def do_update(self, line):
         """
         Updates or Adds an attribute to an instance of a class
@@ -174,7 +172,7 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** value missing **")
                 return False
-        
+
         instance_found.save()
 
 if __name__ == '__main__':
