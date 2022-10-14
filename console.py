@@ -26,14 +26,14 @@ class HBNBCommand(cmd.Cmd):
     """
     Class Command interpreter
     """
-    
+
     prompt = '(hbnb) '
     file = None
 
     def do_EOF(self, line):
         """End of File command: exit the program"""
         return True
-    
+
     def do_quit(self, line):
         """Quits command that exits the program """
         exit()
@@ -51,14 +51,14 @@ class HBNBCommand(cmd.Cmd):
     def emptyline(self):
         """Built in method that prints the prompt again"""
         return False
-        
+    
 
     def do_create(self, line):
         """Creates a new instance of BaseModel, saves it
         (to the JSON file) and prints the id.
         """
         if len(line) == 0:
-            print ("** class name missing **")
+            print("** class name missing **")
             return
         try:
             string = line + "()"
@@ -67,7 +67,7 @@ class HBNBCommand(cmd.Cmd):
             instance.save()
         except:
             print("** class doesn't exist **")
-        
+
     def do_show(self, arg):
         """ Prints the string representation of an instance
             based on the class name and id
@@ -110,7 +110,7 @@ class HBNBCommand(cmd.Cmd):
                 models.storage.save()
             else:
                 print("** no instance found **")
-    
+
     def do_all(self, line):
         """Prints string representations of instances"""
         className_line = shlex.split(line)
@@ -130,7 +130,7 @@ class HBNBCommand(cmd.Cmd):
             print("]")
         else:
             print("** class doesn't exist **")
-      
+ 
     def do_update(self, line):
         """
         Updates or Adds an attribute to an instance of a class
