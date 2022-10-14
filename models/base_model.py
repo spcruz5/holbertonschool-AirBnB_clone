@@ -48,7 +48,8 @@ class BaseModel:
 
     def __str__(self):
         """Returns the class name, id and dictionary attrbutes"""
-        return "[{}] ({}) {}" .format(self.__class__.__name__, self.id, self.__dict__)
+        return "[{}] ({}) {}" .format(self.__class__.__name__,
+                                      self.id, self.__dict__)
 
     def save(self):
         """Updates public instance attribute update_at with the actual date and hour"""
