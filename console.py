@@ -14,6 +14,7 @@ from models.review import Review
 from models.state import State
 from models.user import User
 from models.engine.file_storage import FileStorage
+from models import storage
 import shlex
 
 
@@ -65,22 +66,30 @@ class HBNBCommand(cmd.Cmd):
         except:
             print("** class doesn't exist **")
         
-    def do_show(self, line):
-        """Prints an instance as a string based on the class and id"""    
-        className_line = line.split()
-        if len(className_line) == 0:
+    def do_show(self, arg):
+        """ Prints the string representation of an instance
+            based on the class name and id
+        """
+        args_list = arg.split(" ")
+        if args_list[0] == "":
             print("** class name missing **")
-            return
-        elif className_line[0] not in classGroup.keys():
+        elif args_list[0] not in classGroup.keys():
             print("** class doesn't exist **")
-        elif len(className_line) == 1:
+        elif len(args_list) < 2:
             print("** instance id missing **")
-        elif len(className_line) == 2:
-            instance = className_line[0] + "." + className_line[1]
-            if instance in models.storage.all():
-                print(models.storage.all()[instance])
-            else:
+        else:
+            """ We need to check if the 'id' exists, to do so we need to
+            create id_object with the form Classname.id that is the key that
+            we will ask if is in Storge and retrieve the value for that key
+            """
+            id_object = "{}.{}".format(args_list[0], args_list[1])
+            if id_object not in storage.all():
                 print("** no instance found **")
+            else:
+                """print the string representation based on the
+                   class name and the ID
+                """
+                print(storage.all()[id_object])
 
     def do_destroy(self, line):
         """Deletes an instance base on the class and id"""
