@@ -17,7 +17,3 @@ class Test_State(unittest.TestCase):
     def setup():
         """ sets up State tests """
         pass
-
-
-if __name__ == '__main__':
-    unittest.main()

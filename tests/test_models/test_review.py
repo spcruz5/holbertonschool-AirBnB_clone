@@ -19,7 +19,3 @@ class Test_Review(unittest.TestCase):
     def setup():
         """ sets up Review tests """
         pass
-
-
-if __name__ == '__main__':
-    unittest.main()

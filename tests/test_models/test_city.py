@@ -17,7 +17,3 @@ class Test_City(unittest.TestCase):
     def setup():
         """ sets up City tests """
         pass
-
-
-if __name__ == '__main__':
-    unittest.main()
