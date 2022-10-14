@@ -10,6 +10,7 @@ import models
 dtm = "%Y-%m-%dT%H:%M:%S.%f"
 value = "2017-06-14T22:31:03.285259"
 
+
 class BaseModel:
     """Base Model"""
     def __init__(self, *args, **kwargs):
@@ -24,12 +25,10 @@ class BaseModel:
             for key, value in kwargs.items():
                 # Assign key the actual date of creation
                 if key == "created_at":
-                    self.created_at = datetime.strptime(
-                    value, dtm)
+                    self.created_at = datetime.strptime(value, dtm)
                 # Assign key the updated date
                 elif key == "updated_at":
-                    self.updated_at = datetime.strptime(
-                    value, dtm)
+                    self.updated_at = datetime.strptime(value, dtm)
                 # Assign value to key
                 # self: object which attribute will be assigned
                 # key: attribute of the object assigned
