@@ -58,7 +58,7 @@ class BaseModel:
         models.storage.save()
 
     def to_dict(self):
-        """ Returns a dictionary that contains all the keys / 
+        """ Returns a dictionary that contains all the keys /
             values of instance __dict__ of the instance with
             self.__dic__.
             This method will be the first piece of the
@@ -67,7 +67,7 @@ class BaseModel:
             of our BaseModel
         """
         dic = {
-            
+
             '__class__': self.__class__.__name__,
             'updated_at': self.updated_at.strftime(dtm),
             'id': self.id,
