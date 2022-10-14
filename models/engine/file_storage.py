@@ -7,9 +7,9 @@ from models.base_model import BaseModel
 
 class FileStorage:
     """This class manages storage of hbnb models in JSON format"""
-      #string-path to JSON file
+    """string-path to JSON file"""
     __file_path = 'file.json'
-      #dictionary-empty but will store all objects 
+    """dictionary-empty but will store all objects""" 
     __objects = {}
 
     def all(self):
