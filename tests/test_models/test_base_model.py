@@ -21,8 +21,8 @@ class BaseModelTests(unittest.TestCase):
         self.my_model.save()
         my_model_json = self.my_model.to_dict()
 
-        self.assertEqual(self.my_model.name, my_model_json['name'])
-        self.assertEqual(self.my_model.my_number, my_model_json['my_number'])
+        self.assertEqual(self.my_model.name, "Holberton")
+        self.assertEqual(self.my_model.my_number, 89)
         self.assertEqual('BaseModel', my_model_json['__class__'])
         self.assertEqual(self.my_model.id, my_model_json['id'])
 
