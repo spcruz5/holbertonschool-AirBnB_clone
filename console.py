@@ -174,8 +174,7 @@ class HBNBCommand(cmd.Cmd):
             except NameError:
                 print("** value missing **")
                 return False
-        
-        instance_found.save()
+        setattr(instance_found, args[2], args[3])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
