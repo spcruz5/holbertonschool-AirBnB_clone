@@ -169,11 +169,8 @@ class HBNBCommand(cmd.Cmd):
             return False
 
         if len(args) == 3:
-            try:
-                type(eval(args[2])) != dict
-            except NameError:
-                print("** value missing **")
-                return False
+            print("** value missing **")
+            return False
 
         if args[2] in classGroup:
             setattr(instance_found, args[2], args[3])
