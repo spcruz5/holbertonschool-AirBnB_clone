@@ -57,7 +57,7 @@ class HBNBCommand(cmd.Cmd):
         """"""
         if len(line) == 0:
             print ("** class name missing **")
-
+            return
         try:
             string = line + "()"
             instance = eval(string)
