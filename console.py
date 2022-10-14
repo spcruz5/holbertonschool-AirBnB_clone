@@ -175,6 +175,9 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
                 return False
 
+        if args[2] in classGroup.keys():
+            setattr(instance_found, args[2], args[3])
+
         instance_found.save()
 
 if __name__ == '__main__':
