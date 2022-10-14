@@ -37,7 +37,7 @@ class Test_File_Storage_Method(unittest.TestCase):
         self.storage = FileStorage()
         self.user = User()
         ob_dict = self.storage.all()
-        key = "{}.{}".format(type(self.user).name, self.user.id)
+        key = "{}.{}".format(type(self.user).class_name, self.user.id)
         self.assertTrue(key in ob_dict.keys())
 
     def test_save(self):
