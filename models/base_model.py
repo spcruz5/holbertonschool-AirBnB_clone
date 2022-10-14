@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-"""
-Class BaseModel
-"""
+""" Class BaseModel """
 
 from datetime import datetime
 import uuid
 import models
+
+
 # dtm = dateformat
 dtm = "%Y-%m-%dT%H:%M:%S.%f"
 value = "2017-06-14T22:31:03.285259"
