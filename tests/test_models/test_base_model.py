@@ -49,7 +49,7 @@ class TestBaseModel(unittest.TestCase):
         bm_instance1_json = self.bm_instance1.to_dict()
         self.bm_instance2 = BaseModel(**bm_instance1_json)
         self.assertEqual(self.bm_instance2.id, self.bm_instance1.id)
-        self.assertEqual(self.bm_instance2.name, self.bm_instance1.__name__)
+        self.assertEqual(self.bm_instance2.name, self.bm_instance1.__class__)
         self.assertEqual(self.bm_instance2.my_number,
                          self.bm_instance1.my_number)
         self.assertEqual(self.bm_instance2.created_at,
