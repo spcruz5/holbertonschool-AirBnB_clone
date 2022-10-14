@@ -18,7 +18,9 @@ from models import storage
 import shlex
 
 
-classGroup = {"Amenity": Amenity,"BaseModel": BaseModel,"City": City,"Place": Place,"Review": Review,"State": State,"User": User}
+classGroup = {"Amenity": Amenity, "BaseModel": BaseModel,
+                "City": City, "Place": Place, "Review": Review,
+                "State": State, "User": User}
 
 
 class HBNBCommand(cmd.Cmd):
