@@ -37,7 +37,7 @@ class Test_File_Storage_Method(unittest.TestCase):
         self.storage = FileStorage()
         self.user = User()
         ob_dict = self.storage.all()
-        key = "{}.{}".format(type(self.user).class_name, self.user.id)
+        key = "{}.{}".format(type(self.user).name, self.user.id)
         self.assertTrue(key in ob_dict.keys())
 
     def test_save(self):
@@ -45,7 +45,7 @@ class Test_File_Storage_Method(unittest.TestCase):
         MyModel = BaseModel()
         self.storage = FileStorage()
         self.storage.save()
-        self.path = self.storage._FileStoragefile_path
+        self.path = self.storage.__file_path
         with open(self.path) as file:
             file_dict = json.load(file)
         self.assertIn(MyModel.to_dict(), file_dict.values())
