@@ -169,13 +169,13 @@ class HBNBCommand(cmd.Cmd):
             return False
 
         if len(args) == 3:
-            print("** value missing **")
-            return False
-
-        if args[2] in classGroup:
-            setattr(instance_found, args[2], args[3])
-
-        instance_found.save()
+            try:
+                type(eval(args[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+        
+        setattr(instance_found, args[2], args[3])
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
