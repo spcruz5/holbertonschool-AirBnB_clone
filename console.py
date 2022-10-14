@@ -139,17 +139,17 @@ class HBNBCommand(cmd.Cmd):
         """
         if not line:
             print("** class name missing **")
-            return
+            return False
 
         args = line.split()
 
         if args[0] not in classGroup.keys():
             print("** class doesn't exist **")
-            return
+            return False
 
         if len(args) == 1:
             print("** instance id missing **")
-            return
+            return False
 
         obj_key = args[0] + "." + args[1]
         storage = FileStorage()
@@ -162,16 +162,19 @@ class HBNBCommand(cmd.Cmd):
 
         if not instance_found:
             print("** no instance found **")
-            return
+            return False
 
-        if len(args) < 3:
+        if len(args) == 2:
             print("** attribute name missing **")
-            return
+            return False
 
-        if len(args) < 4:
-            print("** value missing **")
-            return
-
+        if len(args) == 3:
+            try:
+                type(eval(args[2])) != dict
+            except NameError:
+                print("** value missing **")
+                return False
+        
         instance_found.save()
 
 if __name__ == '__main__':
