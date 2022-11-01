@@ -1,3 +1,4 @@
+
 .places {
     width: 100%;
     border: 0;
@@ -5,6 +6,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 20px;
 }
 
 .places > h1 {
@@ -122,6 +124,8 @@
     display: flex;
     width: 100%;
     flex-direction: column;
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 .places .amenities ul {
