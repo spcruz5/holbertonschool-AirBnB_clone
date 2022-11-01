@@ -173,8 +173,13 @@
 .places .reviews h2 {
     font-size: 16px;
     border-bottom:1px solid #DDDDDD;
+    text-align: left;
+    padding-bottom: 10px;
+    width: 100%;
 }
 
 .places .reviews h3 {
     font-size: 14px;
+    text-align: left;
+    margin: 10px auto;
 }
